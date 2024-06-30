@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block category %}
+<div class="block-categories-for-del">
+    <ul>
+    {% if not categories %}
+        <h1>Нет категорий</h1>
+    {% else %}
+    {% for category in categories %}
+        <li class="item-category-del">
+            <div class="block-category-name-del">
+                <p class="name-category-del">{{category.name}}</p>
+            </div>
+            <div class="block-category-btn-del">
+                <a class="btn-category-del" href="{% url 'todo:delete_category' category.id %}">Удалить</a>
+            </div>
+        </li>
+    {% endfor %}
+    {% endif %}
+    </ul>
+</div>
+<div class="enter"></div>
+{% endblock %}

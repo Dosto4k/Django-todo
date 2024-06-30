@@ -1,0 +1,5 @@
+/todoenv/
+.idea
+/todo/.env
+/todo/.idea
+__pycache__

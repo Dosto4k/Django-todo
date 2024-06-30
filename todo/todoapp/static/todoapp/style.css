@@ -1,0 +1,542 @@
+/* всякие вещи */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    font-family: Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+/* убрать стиль у списка */
+ul {
+    list-style: none;
+}
+
+/* убрать декорацию текста ссылок */
+.a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+/* цвет текста прогресс бара */
+.w3-blue, .w3-hover-blue:hover {
+    color: black !important;
+    background-color: #0d6efd !important;
+}
+
+/* - скроллбар */
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Пробел */
+.enter {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(0, 0, 0, .01);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, .1), inset 0 0.125em 0.5em rgba(0, 0, 0, .15);
+}
+
+/* категории */
+/* блок с категориями */
+.block-category {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* список категорий */
+.list-categories {
+    display: flex;
+    gap: 5px 10px;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    min-width: 50%;
+    flex-wrap: wrap;
+}
+
+/* элемент списка */
+.category-item{
+    background: linear-gradient(
+        to right,
+        #0d6efd 0% var(--percent-category),
+        white var(--percent-category) 100%
+    );
+    border-radius: 15px;
+    color: black;
+}
+
+/* ссылка на категорию */
+.category-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    color: transparent;
+    text-decoration: none;
+    border: 1px solid  #0d6efd;
+    border-radius: 15px;
+    font-size: 20px;
+    background: linear-gradient(
+        to right,
+        white 0% var(--percent-category),
+        black var(--percent-category) 100%
+    );
+    background-clip: text;
+}
+
+/* кнопка добавить категорию */
+.add-category {
+    padding: 0px;
+    width: 20px;
+    height: 20px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid  #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* nav bar */
+/* блок header */
+.nav-main {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* лист nav бара */
+.nav-list {
+    display: flex;
+    gap: 5px;
+}
+
+/* ссылки в nav баре */
+.nav-link {
+    display: block;
+    padding: 5px 16px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid  #0d6efd;
+    border-radius: 12px;
+}
+
+/* активная вкладка */
+.active {
+    background-color: #0d6efd;
+    color: white;
+} 
+
+/* нет заметкок */
+/* информаия о категории если в ней не заметок */
+.category-without-notes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    font-size: 20px;
+}
+
+
+/* есть заметки */
+/* контейнер с инфрмацией про категорию */
+.container-category-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+/* блок с названием категории и прогресс бвром */
+.name-and-bar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* блок с круглым прогресс баром */
+.circle-bar {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+/* название категории */
+.category-name{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-size: 25px;
+    flex-wrap: wrap;
+} 
+
+/* блок с прогресс быром */
+.pg-bar-cont{
+    text-align: center;
+    width: 70%;
+}
+
+/* круговой прогресс бар */
+.circle{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: 
+        conic-gradient(
+            #0d6efd 0% var(--percent),
+            white var(--percent) 100%
+        );
+    border: 1px solid #0d6efd;
+}
+
+/* круг в центре круглого прогресс бара*/
+.circle::after{
+    position: relative;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    content: var(--note-complete);
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0d6efd;
+    font-size: 25px;
+}
+
+/* лист записок */
+.list-notes{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* блок записки */
+.block-note, .block-note-detail{
+    width: 70%;
+    background-color: white;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 10px 0px;
+}
+
+/* блок кнопок */
+.btn-block{
+    margin: 10px;
+}
+
+/* кнопка записки */
+.btn-note{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid #0d6efd;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* кнопка завершено */
+.complete{
+    background: url(images/complete.png) center no-repeat;
+    background-size: 30px;
+}
+
+/* кнопка доделать */
+.uncomplete{
+    background: url(images/uncomplete.png) center no-repeat;
+    background-size: 28px;
+}
+
+/* кнопка изменить */
+.edit{
+    background: url(images/edit.png) center no-repeat;
+    background-size: 28px;
+}
+
+/* кнопка удалить */
+.delete{
+    background: url(images/delete.png) center no-repeat;
+    background-size: 28px;
+}
+
+/* детали записки */
+.note-detail{
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* категория записки */
+.note-category{
+    font-size: 20px;
+    margin: 10px;
+    z-index: 0;
+}
+
+/* заголовок записки */
+.note-title{
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* тело записки */
+.note-body{
+    text-align: justify;
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* текст если заметка выполнена */
+.text-complete{
+    font-size: 60px;
+}
+
+/* Страница удаления заметки */
+/* Текст подтверждения удаления */
+.delete-text{
+    font-size: 40px;
+    text-align: center;
+}
+
+/* детали заметки */
+.block-note-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* блок удаления */
+.container-del{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* юлок кнопок на странице удаления */
+.block-btn-del{
+    display: flex;
+    justify-content: center;
+}
+
+/* Страница изменения */
+/* контейнер формы */
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ошибки вне полей и ошибки поля*/
+.non-field-err, .field-err{
+    padding: 0px 10px;
+    text-align: justify;
+}
+
+.errorlist > li{
+    margin: 10px 0px;
+}
+
+/* форма изменения */
+.form-update{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 1px solid #0d6efd;
+    border-radius: 20px;
+}
+
+/* блок поля */
+.block-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+    width: 100%;
+}
+
+
+/* лайбл поля */
+.field-label{
+    font-size: 30px;
+}
+
+/* поле категории */
+.category-field{
+    padding: 20px 10px;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    font-size: 20px;
+    max-width: 50%;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+select option{
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid black;
+}
+
+/* поле категории при фокусе */
+.category-field:focus{
+    border: 2px solid black;
+}
+
+/* поле заголовка */
+.title-field{
+    padding: 20px;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    width: 80%;
+}
+
+/* поле тела */
+.body-field{
+    padding: 20px;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    max-width: 80%;
+    min-width: 80%;
+    max-height: max-content;
+}
+
+/* кнопка отправки формы */
+.btn-submit{
+    margin: 15px 0px 25px 0px;
+    width: 20%;
+    height: 50px;
+    border: 1px solid #0d6efd;
+    background-color: white;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+
+/* Кнопка перехода на добавление записки и категории */
+/* Блок кнопки */
+.block-create-delete{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* сама кнопка */
+.add-button, .delete-button{
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #0d6efd;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* создание категории */
+/* поле name */
+.name-field{
+    padding: 20px;
+    border: 1px solid #0d6efd;
+    border-radius: 25px;
+    width: 80%;
+}
+
+/* Страница со списком категорий для удаления */
+/* Внешний блок */
+.block-categories-for-del{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* элемент списка категорий */
+.item-category-del{
+    border: 1px solid #0d6efd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 15px;
+    margin: 10px 0px;
+    font-size: 20px;
+}
+
+/* блок с именем категории */
+.block-category-name-del{
+    padding: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* блок с кнопкой удалить */
+.block-category-btn-del{
+    padding: 20px;
+    text-align: justify;
+}
+
+/* подтверждение удаления */
+/* блок подтверждения */
+.confirm-del-category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+}
+
+/* блок с информацией о удаляемом обьекте */
+.block-detail{
+    border: 1px solid #0d6efd;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+
+
+

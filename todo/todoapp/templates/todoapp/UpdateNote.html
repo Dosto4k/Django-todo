@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block notes %}
+
+<div class="form-container">
+    <div class="non-field-err">{{ form.non_field_errors }}</div>
+    <form class="form-update" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="block-field">
+            <label class="field-label" for="{{field.id_for_label}}">{{field.label}}</label>
+            <div class="field-err">{{field.errors}}</div>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <button class="btn-submit" type="submit">Изменить</button>
+    </form>
+</div>
+<div class="enter"></div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block category %}
+<div class="confirm-del-category">
+    <p class="delete-text">Вы действительно хотите удалить категорию ?</p>
+    <div class="block-detail">
+        <p>{{category.name}}</p>
+    </div>
+    <form method="post" class="block-btn-del">
+        {% csrf_token %}
+        <input value="{{category.id}}" hidden="hidden" disabled>
+        <button title="Удалить" type="submit" class="btn-note complete"></button>
+        <a title="Отменить" href="{% url 'todo:category_delete_list' %}" class="btn-note delete"></a>
+    </form>
+</div>
+<div class="enter"></div>
+{% endblock %}

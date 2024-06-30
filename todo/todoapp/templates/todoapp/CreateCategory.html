@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block notes %}
+
+<div class="form-container">
+    <form class="form-update" method="post">
+    {% csrf_token %}
+    <div class="non-field-err">{{ form.non_field_errors }}</div>
+    {% for field in form %}
+        {% if field.label == 'Пользователь' %}
+        <input type="hidden" value="{{user.id}}" name="user">
+        {% else %}
+        <div class="block-field">
+            <label class="field-label" for="{{field.id_for_label}}">{{field.label}}</label>
+            <div class="field-err">{{field.errors}}</div>
+            {{ field }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    <button class="btn-submit" type="submit">Создать</button>
+    </form>
+</div>
+<div class="enter"></div>
+{% endblock %}

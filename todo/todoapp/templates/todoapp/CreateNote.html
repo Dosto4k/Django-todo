@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block notes %}
+<div class="form-container">
+    <form class="form-update" method="post">
+    {% csrf_token %}
+    <div class="non-field-err">{{ form.non_field_errors }}</div>
+    {% for field in form %}
+        {% if field.label == 'Категория' and category_select %}
+        <div class="block-field">
+            <label class="field-label" for="id_category">Категория</label>
+            <div class="field-err">{{field.errors}}</div>
+            <select name="category" class="category-field" required id="id_category" onmousedown="if(this.options.length>10){this.size=10;}"  onchange='this.size=0;' onblur="this.size=0;">
+                <option value>---------</option>
+                {% for category in category_option %}
+                    {% if category.slug == category_select.slug %}
+                        <option value="{{category.id}}" selected>{{category.name}}</option>
+                    {% else %}
+                        <option value="{{category.id}}">{{category.name}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        {% elif field.label == 'Пользователь' %}
+        <input type="hidden" value="{{user.id}}" name="user">
+        {% else %}
+        <div class="block-field">
+            <label class="field-label" for="{{field.id_for_label}}">{{field.label}}</label>
+            <div class="field-err">{{field.errors}}</div>
+            {{ field }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    <button class="btn-submit" type="submit">Создать</button>
+    </form>
+</div>
+<div class="enter"></div>
+{% endblock %}

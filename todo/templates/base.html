@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'todoapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user/style_auth.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="nav-main">
+        <ul class="nav-list">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'todo:all_categories' %}" class="nav-link">Категории</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'user:logout'%}" class="nav-link">{{user.username}}|Выйти</a>
+            </li>
+            {% else %}
+            {% if active == 'login' %}
+            <li class="nav-item">
+                <a href="{% url 'user:login'%}" class="nav-link active">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'user:register'%}" class="nav-link">Регистрация</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a href="{% url 'user:login'%}" class="nav-link">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'user:register'%}" class="nav-link active">Регистрация</a>
+            </li>
+            {% endif %}
+            {% endif %}
+        </ul>
+    </header>
+    <div class="enter"></div>
+    {% block auth %}{% endblock %}
+    {% block category %}{% endblock %}
+    {% block notes %}{% endblock %}
+</body>
+</html>

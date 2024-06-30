@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block category %}
+{% if not notes %}
+<div class="category-without-notes">
+    <p>Нет заметок категории - {{category}}</p>
+</div>
+
+{% else %}
+<div class="container-category-info">
+    <div class="name-and-bar">
+        <div class="category-name">
+            <p>{{category}}</p>
+        </div>
+    </div>
+    <div class="circle-bar">
+        <div class="circle" style="--note-complete: '{{complete}}|{{all_notes}}'; --percent: {{percent_complete}}">
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="enter"></div>
+{% endblock %}
+
+{% block notes %}
+<div class="block-create-delete">
+    <a class="add-button" href="{% url 'todo:create_note' cat_url %}">Добавить заметку</a>
+</div>
+<div class="enter"></div>
+{% if notes %}
+<div class="container-notes">
+    <ul class="list-notes">
+        {% for note in notes %}
+        <li class="block-note">
+            <div class="btn-block">
+                <form method="post">
+                    {% csrf_token %}
+                    {% if note.complete == True %}
+                    <input type="text" hidden="hidden" name="slug" value="{{ note.slug }}">
+                    <button title="Доделать" type="submit" class="btn-note complete"></button>
+                    {% else %}
+                    <input type="text" hidden="hidden" name="slug" value="{{ note.slug }}">
+                    <button title="Выполнить" type="submit" class="btn-note uncomplete"></button>
+                    {% endif %}
+                </form>
+                <a title="Изменить" href="{% url 'todo:update_note' cat_url note.slug%}" class="btn-note edit"></a>
+                <a title="Удалить" href="{% url 'todo:delete_note' cat_url note.slug %}" class="btn-note delete"></a>
+            </div>
+            {% if note.complete == True %}
+            <div class="note-detail">
+                <p class="text-complete">✅Complete !!!</p>
+            </div>
+            {% else %}
+            <div class="note-detail">
+                <p class="note-category">{{note.category}}</p>
+                <p class="note-title">{{note.title}}</p>
+                <p class="note-body">{{note.body}}</p>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+

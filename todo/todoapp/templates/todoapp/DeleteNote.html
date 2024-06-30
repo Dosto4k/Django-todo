@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block notes %}
+<div class="container-del">
+    <div class="delete-text">
+        <p>Вы действительно хотите удалить заметку?</p>
+    </div>
+    <div class="block-note-detail">
+        <p class="note-category">{{note.category}}</p>
+        <p class="note-title">{{note.title}}</p>
+        <p class="note-body">{{note.body}}</p>
+    </div>
+    <div class="container-form">
+        <form method="post" class="block-btn-del">
+            {% csrf_token %}
+            <input hidden="hidden" name="slug" value="{{note.slug}}"/>
+            <button title="Удалить" type="submit" class="btn-note complete"></button>
+            <a title="Отменить" href="{% url 'todo:notes_of_category' category_url %}" class="btn-note delete"></a>
+        </form>
+    </div>
+</div>
+<div class="enter"></div>
+{% endblock %}

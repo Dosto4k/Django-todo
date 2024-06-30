@@ -1,0 +1,43 @@
+/* контейнер формы */
+.auth-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.h1-auth{
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.auth-form{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 30%;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.auth-field{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #0d6efd;
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+
+.auth-field:focus{
+    border: 1px solid black;
+}
+
+.btn-auth{
+    border: 1px solid #0d6efd;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+

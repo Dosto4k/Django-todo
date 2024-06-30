@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load filters %}
+{% block category %}
+<div class="block-category">
+    <ul class="list-categories">
+        <li class="category-item">
+            <a href="{% url 'todo:notes_of_category' 'all' %}"
+               class="category-link"
+               style="--percent-category: 0.0%">Все категории</a>
+        </li>
+        {% for category in categories %}
+        <li class="category-item" style="--percent-category: {{category.percent_complete}}">
+            <a href="{% url 'todo:notes_of_category' category.slug %}"
+               class="category-link"
+               style="--percent-category: {{category.percent_complete}}" >
+                {{category.name}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="enter"></div>
+<div class="block-create-delete">
+    <a class="add-button" href="{% url 'todo:create_category' %}">Добавить категорию</a>
+    <a class="delete-button" href="{% url 'todo:category_delete_list' %}">Удалить категорию</a>
+</div>
+<div class="enter"></div>
+{% endblock %}
